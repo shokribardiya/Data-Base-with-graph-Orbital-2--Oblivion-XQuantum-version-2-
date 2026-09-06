@@ -43,3 +43,25 @@ In the interest of giving this the same measured treatment we'd want from any te
 ## Why this shape works
 
 Oblivion Orbital isn't trying to out-engineer purpose-built graph databases, IDEs, or deployment platforms individually. It's making a bet that for a single team's internal tooling, one coherent process with honest fallbacks beats three well-specialized ones that don't talk to each other. The graceful-degradation pattern, the provenance-aware deletion logic, and the audit-everything default are the parts of that bet that are already paying for themselves; the unsandboxed execution path is the part that comes with a bill attached the moment the deployment target changes.
+
+
+
+For **Oblivion Orbital**, nothing is strictly required beyond Python's standard library — the whole app (HTTP server, SQLite storage, knowledge graph, auth, dashboard) runs out of the box with just:
+
+```
+python oblivion_orbital.py
+```
+
+**Optional (recommended) packages** — only needed to unlock the higher-quality code-intelligence features; without them the app automatically falls back to stdlib-based alternatives:
+
+```
+pip install pyflakes jedi pluggy
+```
+
+| Package | What it upgrades | Fallback if missing |
+|---|---|---|
+| `pyflakes` | Accurate diagnostics/linting in the editor | `ast`/`compile()`-based syntax checking |
+| `jedi` | Semantic, context-aware code completion | Simple keyword/scope-based completion |
+| `pluggy` | Proper plugin/hook system for import formats | No-op decorator, same call sites still work |
+
+So: install those three if you want the full "smart editor" experience; skip them entirely if you just want the knowledge graph, auth, and dashboard running with zero dependencies.
