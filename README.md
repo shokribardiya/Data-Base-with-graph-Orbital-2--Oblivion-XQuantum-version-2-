@@ -65,3 +65,4 @@ pip install pyflakes jedi pluggy
 | `pluggy` | Proper plugin/hook system for import formats | No-op decorator, same call sites still work |
 
 So: install those three if you want the full "smart editor" experience; skip them entirely if you just want the knowledge graph, auth, and dashboard running with zero dependencies.
+This system is designed for data control and pattern recognition. This is the second version; to access the software for a ten-day demo, please visit the website below and send a message to the email address listed there.You go to the contact section in website and send an email with the request, along with a paragraph about what you want to use it for and a certificate of your work.
